@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Super Hero Name Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(45deg, #333333, #FFD700);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            left: auto;
+            background-color: #FFFFE0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333333;
+            font-size: 48px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        label {
+            font-weight: bold;
+        }
+        .form-control {
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            background-color: #FFD700;
+            border-color: #FFD700;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background-color: #FFC800;
+            border-color: #FFC800;
+        }
+        .mt-4 {
+            margin-top: 20px;
+        }
+        h4 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        .spidy-img {
+            display: flex;
+            justify-content: left;
+        }
+        .spidy-img img {
+            width: 400px;
+            height: 550px;
+        }
+    </style>
+</head>
+<body>
+    <div class="spidy-img">
+        <img src="{{ url_for('static', filename='spidy.png') }}" alt="Spidy">
+    
+    <div class="container">
+        
+        <h1>Super Hero Name Generator</h1>
+        <form action="{{ url_for('predict') }}" method="post" onsubmit="return validateInput();">
+            <div class="form-group">
+                <label for="input_text">Enter Text:</label>
+                <input type="text" class="form-control" id="input_text" name="input_text" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+           
+        </form>
+
+        {% if input_text and results %}
+            <div class="mt-4">
+                <h4 style="padding: 10px; border: 2px solid rgb(8, 8, 8);">Input Name:   {{ input_text }}</h4>
+             
+
+                <h4  style="padding: 10px; border: 2px solid rgb(10, 9, 9);">Your Super Hero Name:  {{ results }}</h4>
+               
+            </div>
+        {% endif %}
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    
+</div>
+</body>
+</html>
