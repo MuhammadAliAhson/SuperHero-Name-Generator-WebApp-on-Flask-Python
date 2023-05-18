@@ -26,7 +26,7 @@ pip install numpy tensorflow matplotlib scikit-learn keras
 
 ## Getting Started
 
-Follow the steps below to get started with the superhero name generator:
+Follow the steps below to get started with the superhero name generator Model in Colab NoteBook:
 
 1. Clone the repository:
    ```
